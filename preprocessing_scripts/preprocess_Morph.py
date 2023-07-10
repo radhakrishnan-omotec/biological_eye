@@ -119,7 +119,7 @@ def loadData_preprocessData_and_makeDataFrame():
   # some filtering on df
   processed_dataset_df = processed_dataset_df.dropna()
   processed_dataset_df = processed_dataset_df[(processed_dataset_df.age >= 0) & (processed_dataset_df.age <= 100)]
-  # processed_dataset_df.to_csv('/content/Dataset.csv',index=False)
+  # processed_dataset_df.to_csv('/content/biological_eye/Dataset.csv',index=False)
   #Dataset_DF = processed_dataset_df # putting it into global Dataset_DF variable
   return processed_dataset_df # returning now (just in case need to return), maybe later remove...
 
@@ -156,13 +156,13 @@ def rectify_data():
 
 #initiate face detector and predictor
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("/content/C3AE_keras/detector/shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("/content/biological_eye/C3AE_keras/detector/shape_predictor_68_face_landmarks.dat")
 
 # creating dummy DF, later will process all images to make it real df
 Dataset_DF = pd.DataFrame(columns=["age", "gender", "image", "org_box", "trible_box", "landmarks", "roll", "yaw", "pitch"])
 
 # define all parameters here
-dataset_base_path = Path('/content/C3AE_keras/datasets/aligned/')
+dataset_base_path = Path('/content/biological_eye/C3AE_keras/datasets/aligned/')
 dataset_name = 'morph' # different dataset name means different sequence for loading etc
 # image transform params (if require)
 extra_padding = 0.55
